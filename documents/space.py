@@ -22,6 +22,15 @@ class Balle():
         self.image=pygame.image.load("balle.png")
         self.depart=self.tireur + 16
         self.hauteur=492
-        self.etat="chargé"
+        self.etat="chargee"
+    def bouger(self):
+        if self.etat == "attente":
+            self.depart = self.tireur.position + 16
+            self.hauteur = 492
+        elif self.etat == "tiree" :
+            self.hauteur = self.hauteur - 5
+        
+        if self.hauteur < 0:
+            self.etat = "chargee"
         
         
