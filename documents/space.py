@@ -18,9 +18,10 @@ class Joueur() : # classe pour créer le vaisseau du joueur
             
 class Balle():
     def __init__(self):
-        self.tireur=Joueur
+        self.tireur=tireur
         self.image=pygame.image.load("balle.png")
-        self.depart=self.position
+        self.depart=self.tireur + 16
         self.hauteur=492
+        
         
         
