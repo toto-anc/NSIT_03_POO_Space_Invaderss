@@ -21,6 +21,6 @@ class Balle():
         self.tireur=Joueur
         self.image=pygame.image.load("balle.png")
         self.depart=self.position
-        self.hauteur=
+        self.hauteur=492
         
         
