@@ -32,5 +32,37 @@ class Balle():
         
         if self.hauteur < 0:
             self.etat = "chargee"
+        def toucher(self, vaisseau):
+        if (math.fabs(self.hauteur - vaisseau.hauteur) < 40) and (math.fabs(self.depart - vaisseau.depart) < 40):
+            self.etat = "chargee"
+            return True
+  
+class Ennemi():
+    NbEnnemis = 6
+    
+    def __init__(self):
+        self.depart = random.randint(1,700)
+        self.hauteur = 10
+        self.type = random.randint(1,2)
+        if  (self.type == 1):
+            self.image = pygame.image.load("invader1.png")
+            self.vitesse = 1
+        elif (self.type ==2):
+            self.image = pygame.image.load("invader2.png")
+            self.vitesse = 2
+            
+    def avancer(self):
+        self.hauteur = self.hauteur + self.vitesse
+    
+    def disparaitre(self):
+        self.depart = random.randint(1,700)
+        self.hauteur = 10
+        self.type = random.randint(1,2)
+        if  (self.type == 1):
+            self.image = pygame.image.load("invader1.png")
+            self.vitesse = 1
+        elif (self.type ==2):
+            self.image = pygame.image.load("invader2.png")
+            self.vitesse = 2
         
         
