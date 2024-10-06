@@ -45,11 +45,11 @@ class Conteneur():
             Sinon affiche un message d'alerte et renvoie None.
         """
         if self.est_vide():
-            #print("La pile est vide")
-            return ...
-        ...
-        print("J'ai sorti:", colis_sorti)
-        return ...
+            print("La pile est vide")
+            return None
+	else:
+        	print("J'ai sorti:", colis_sorti)
+       		return self.colis
 
 
 if __name__ == "__main__":
