@@ -85,7 +85,7 @@ class Boss:
         self.x = 100
         self.vitesse = round(random.uniform(0.1, 4.0),1)
         self.sens = "droite"
-        self.vie='IIIIIII'
+        self.vie=10
         self.tirs=[]#aider par chatgpt
     def avancer(self):
         if self.sens=="droite" and self.x < 800-373+105:
@@ -101,8 +101,7 @@ class Boss:
                 self.sens="droite"
     def perdrevie(self):
         
-        if len(self.vie)>=1:
-            self.vie=self.vie[-1]
+        self.vie-=1
     def tirer(self):
         """aider par chatgpt"""
         # Crée une nouvelle balle et l'ajoute à la liste
@@ -128,4 +127,13 @@ class BalleBoss:
         if (math.fabs(self.hauteur - 500) < 40) and (math.fabs(self.depart - vaisseau.position) < 40):
             return True
         return False
+
+def getSurface(t, clip, srf=None):
+    frame = clip.get_frame(t=t)  # t is the time in seconds
     
+    if srf is None:
+        # Transpose the array and create the Pygame surface
+        return pygame.surfarray.make_surface(frame.swapaxes(0, 1))
+    else:
+        pygame.surfarray.blit_array(srf, frame.swapaxes(0, 1))
+        return srf
